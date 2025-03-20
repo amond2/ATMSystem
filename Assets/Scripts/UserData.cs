@@ -1,33 +1,18 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+using System;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class UserData : MonoBehaviour
+[Serializable] // 직렬화용
+
+public class UserData
 {
-    string playerName = "김효재";
-    int balance = 50000;
-    int cash = 1000000;
-
-    public TMP_Text NameText;
-    public TMP_Text BalanceText;
-    public TMP_Text BalanceUnit;
-    public TMP_Text CashText;
-    public TMP_Text CashUnit;
+    public string userName;
+    public int balance;
+    public int cash;
     
-
-    void Start()
+    public UserData(string userName, int cash, int balance)
     {
-        UpdateTexts();
-    }
-
-    void UpdateTexts()
-    {
-        NameText.text = playerName;
-        BalanceText.text = "통장 잔액";
-        BalanceUnit.text = string.Format("{0:#,###}", balance);
-        CashText.text = "보유 현금";
-        CashUnit.text = string.Format("{0:#,###}", cash);
+        this.userName = userName;
+        this.cash = cash;
+        this.balance = balance;
     }
 }

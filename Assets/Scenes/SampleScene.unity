@@ -314,7 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD1B5\uC7A5 \uC794\uC561"
+  m_text: BalanceText
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
   m_sharedMaterial: {fileID: -3769989252343411607, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
@@ -391,6 +391,59 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36747546}
   m_CullTransparentMesh: 1
+--- !u!1 &103744478
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 103744480}
+  - component: {fileID: 103744479}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &103744479
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103744478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9c9748099e4549d9a04b40855a7a7d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userNameText: {fileID: 236285096}
+  balanceText: {fileID: 36747548}
+  balanceUnit: {fileID: 136302674}
+  cashText: {fileID: 1661239465}
+  cashUnit: {fileID: 1062295302}
+  userData:
+    userName: 
+    balance: 0
+    cash: 0
+--- !u!4 &103744480
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103744478}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1076.996, y: 539.916, z: 2.9541016}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &136302672
 GameObject:
   m_ObjectHideFlags: 0
@@ -448,7 +501,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 50,000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
   m_sharedMaterial: {fileID: -3769989252343411607, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
@@ -574,7 +627,7 @@ GameObject:
   - component: {fileID: 236285097}
   - component: {fileID: 236285096}
   m_Layer: 5
-  m_Name: NameText
+  m_Name: UserNameText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -619,7 +672,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uAE40\uD6A8\uC7AC"
+  m_text: UserNameText
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
   m_sharedMaterial: {fileID: -3769989252343411607, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
@@ -1303,7 +1356,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100,000
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
   m_sharedMaterial: {fileID: -3769989252343411607, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
@@ -1853,7 +1906,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1581982531}
-  - component: {fileID: 1581982532}
   m_Layer: 5
   m_Name: PopupBank
   m_TagString: Untagged
@@ -1885,23 +1937,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1581982532
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1581982530}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 896e2a7b395244cb28cff4dcc61d749b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NameText: {fileID: 0}
-  BalanceText: {fileID: 0}
-  BalanceUnit: {fileID: 0}
-  CashText: {fileID: 0}
-  CashUnit: {fileID: 0}
 --- !u!1 &1661239463
 GameObject:
   m_ObjectHideFlags: 0
@@ -1959,7 +1994,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uBCF4\uC720 \uD604\uAE08"
+  m_text: CashText
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
   m_sharedMaterial: {fileID: -3769989252343411607, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
@@ -2719,5 +2754,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 963194228}
   - {fileID: 705507995}
+  - {fileID: 103744480}
   - {fileID: 2145720458}
   - {fileID: 249920562}
