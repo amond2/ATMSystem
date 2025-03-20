@@ -1,14 +1,33 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UserData : MonoBehaviour
 {
     string playerName = "김효재";
-    int num
-    int Balance = 50000;
-    int Cash = 1000000;
+    int balance = 50000;
+    int cash = 1000000;
+
+    public TMP_Text NameText;
+    public TMP_Text BalanceText;
+    public TMP_Text BalanceUnit;
+    public TMP_Text CashText;
+    public TMP_Text CashUnit;
     
-    string message = string.Format("{0:n0}", number);
-    
+
+    void Start()
+    {
+        UpdateTexts();
+    }
+
+    void UpdateTexts()
+    {
+        NameText.text = playerName;
+        BalanceText.text = "통장 잔액";
+        BalanceUnit.text = string.Format("{0:#,###}", balance);
+        CashText.text = "보유 현금";
+        CashUnit.text = string.Format("{0:#,###}", cash);
+    }
 }
