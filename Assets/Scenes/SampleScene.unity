@@ -314,7 +314,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Balance
+  m_text: "\uD1B5\uC7A5 \uC794\uC561"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
   m_sharedMaterial: {fileID: -3769989252343411607, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
@@ -1258,7 +1258,7 @@ GameObject:
   - component: {fileID: 1062295303}
   - component: {fileID: 1062295302}
   m_Layer: 5
-  m_Name: BalanceUnit
+  m_Name: CashUnit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\uD604\uAE08"
+  m_text: "\uBCF4\uC720 \uD604\uAE08"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
   m_sharedMaterial: {fileID: -3769989252343411607, guid: 92a5773b0920744e0998dd9cec353383, type: 2}

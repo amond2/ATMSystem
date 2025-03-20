@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NewBehaviourScript : MonoBehaviour
+public class UserData : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    string playerName = "김효재";
+    int num
+    int Balance = 50000;
+    int Cash = 1000000;
+    
+    string message = string.Format("{0:n0}", number);
+    
 }
