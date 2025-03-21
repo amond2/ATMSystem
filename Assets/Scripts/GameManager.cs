@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// 게임 내 데이터 호출, 전역적인 설정 제어
+
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
