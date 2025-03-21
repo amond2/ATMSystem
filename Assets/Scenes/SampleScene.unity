@@ -714,15 +714,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f9c9748099e4549d9a04b40855a7a7d8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userNameText: {fileID: 236285096}
-  balanceLabel: {fileID: 36747548}
-  balanceUnit: {fileID: 136302674}
-  cashLabel: {fileID: 1661239465}
-  cashUnit: {fileID: 1062295302}
-  userData:
-    userName: 
-    balance: 0
-    cash: 0
 --- !u!4 &103744480
 Transform:
   m_ObjectHideFlags: 0
@@ -3357,10 +3348,6 @@ MonoBehaviour:
   withdrawButton: {fileID: 1600230127}
   backButton: {fileID: 1845143727}
   InfoMessage: {fileID: 727722011}
-  userData:
-    userName: 
-    balance: 0
-    cash: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -7213,6 +7200,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ddf96849fde42309a807c4a0aa5da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  userNameText: {fileID: 236285096}
+  balanceLabel: {fileID: 36747548}
+  balanceUnit: {fileID: 136302674}
+  cashLabel: {fileID: 1661239465}
+  cashUnit: {fileID: 1062295302}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

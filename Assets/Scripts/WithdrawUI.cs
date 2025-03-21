@@ -14,8 +14,6 @@ public class WithdrawUI : BaseUI
     
     public TMP_Text InfoMessage;
     
-    public UserData userData;
-    
     protected override UIState GetUIState()
     {
         return UIState.Withdraw;
@@ -44,6 +42,8 @@ public class WithdrawUI : BaseUI
     
     void OnClickBackButton(UIState targetState)
     {
+        InfoMessage.text = "";
+        
         uiManager.ChangeState(targetState);
     }
     
@@ -85,18 +85,20 @@ public class WithdrawUI : BaseUI
         int withdrawAmount = int.Parse(customMoneyInputField.text);
     
         // 잔액이 부족한 경우 먼저 체크
-        if (withdrawAmount > userData.balance)
+        if (withdrawAmount > GameManager.Instance.userData.balance)
         {
             InfoMessage.text = "잔액이 부족합니다.";
             return;
         }
     
         // 출금 가능하면 처리
-        userData.balance -= withdrawAmount;
-        userData.cash += withdrawAmount;
+        GameManager.Instance.userData.balance -= withdrawAmount;
+        GameManager.Instance.userData.cash += withdrawAmount;
     
         customMoneyInputField.text = "";
     
         InfoMessage.text = string.Format("{0:#,###}원 출금 완료.", withdrawAmount);
+        
+        UIManager.Instance.UpdateTexts();
     }
 }
