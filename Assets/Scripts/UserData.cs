@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-// [Serializable] // 직렬화용
+[Serializable] // 직렬화용
 
 public class UserData
 {

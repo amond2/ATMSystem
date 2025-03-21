@@ -99,5 +99,7 @@ public class DepositUI : BaseUI
         InfoMessage.text = string.Format("{0:#,###}원 입금 완료.", depositAmount);
         
         UIManager.Instance.UpdateTexts();
+
+        GameManager.Instance.SaveUserData();
     }
 }

@@ -26,6 +26,39 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
+        LoadUserData();
         UIManager.Instance.UpdateTexts();
+    }
+
+    public void SaveUserData()
+    {
+        // Serialize userData to JSON
+        string json = JsonUtility.ToJson(userData);
+        
+        // Define file path in persistentDataPath
+        string filePath = Application.persistentDataPath + "/userdata.json";
+        
+        // Write JSON string to file
+        System.IO.File.WriteAllText(filePath, json);
+        
+        Debug.Log("UserData saved to " + filePath);
+    }
+
+    public void LoadUserData()
+    {
+        string filePath = Application.persistentDataPath + "/userdata.json";
+        
+        if (System.IO.File.Exists(filePath))
+        {
+            string json = System.IO.File.ReadAllText(filePath);
+            
+            userData = JsonUtility.FromJson<UserData>(json);
+            
+            Debug.Log("UserData loaded from " + filePath);
+        }
+        else
+        {
+            Debug.LogWarning("UserData file not found at " + filePath);
+        }
     }
 }

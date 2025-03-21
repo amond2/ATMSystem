@@ -99,5 +99,7 @@ public class WithdrawUI : BaseUI
         InfoMessage.text = string.Format("{0:#,###}원 출금 완료.", withdrawAmount);
         
         UIManager.Instance.UpdateTexts();
+        
+        GameManager.Instance.SaveUserData();
     }
 }
