@@ -8,12 +8,12 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public static GameManager Instance { get; private set; }
+    public static GameManager Instance { get; set; }
     
     public TMP_Text userNameText;
-    public TMP_Text balanceText;
+    public TMP_Text balanceLabel;
     public TMP_Text balanceUnit;
-    public TMP_Text cashText;
+    public TMP_Text cashLabel;
     public TMP_Text cashUnit;
     
     public UserData userData;
@@ -36,17 +36,19 @@ public class GameManager : MonoBehaviour
         UpdateTexts();
     }
 
-    void Refresh()
-    {
-        UpdateTexts();
-    }
+    // void Refresh()
+    // {
+    //     // 데이터 변동이 있으면 리프레시 한다.
+    //     // 다 하면 안되고, 출금, 입금, 버튼을 누를 때.
+    //     UpdateTexts();
+    // }
     
     void UpdateTexts()
     {
         userNameText.text = userData.userName;
-        balanceText.text = "통장 잔액";
+        balanceLabel.text = "통장 잔액";
         balanceUnit.text = string.Format("{0:#,###}", userData.balance);
-        cashText.text = "보유 현금";
+        cashLabel.text = "보유 현금";
         cashUnit.text = string.Format("{0:#,###}", userData.cash);
     }
 }
