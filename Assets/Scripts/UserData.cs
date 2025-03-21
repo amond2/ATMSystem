@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-[Serializable] // 직렬화용
+[Serializable] // 직렬화 역직렬화 사용하려면 추가해야함.
 
 public class UserData
 {

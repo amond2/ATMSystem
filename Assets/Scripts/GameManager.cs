@@ -32,13 +32,10 @@ public class GameManager : MonoBehaviour
 
     public void SaveUserData()
     {
-        // Serialize userData to JSON
         string json = JsonUtility.ToJson(userData);
         
-        // Define file path in persistentDataPath
         string filePath = Application.persistentDataPath + "/userdata.json";
         
-        // Write JSON string to file
         System.IO.File.WriteAllText(filePath, json);
         
         Debug.Log("UserData saved to " + filePath);
