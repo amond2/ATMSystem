@@ -50,8 +50,8 @@ public class UIManager : MonoBehaviour
         
         userNameText.text = userData.userName;
         balanceLabel.text = "통장 잔액";
-        balanceUnit.text = string.Format("{0:#,###}", userData.balance);
+        balanceUnit.text = string.Format("{0:N0}", userData.balance);
         cashLabel.text = "보유 현금";
-        cashUnit.text = string.Format("{0:#,###}", userData.cash);
+        cashUnit.text = string.Format("{0:N0}", userData.cash);
     }
 }

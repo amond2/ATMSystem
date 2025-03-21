@@ -96,7 +96,7 @@ public class WithdrawUI : BaseUI
     
         customMoneyInputField.text = "";
     
-        InfoMessage.text = string.Format("{0:#,###}원 출금 완료.", withdrawAmount);
+        InfoMessage.text = string.Format("{0:N0}원 출금 완료.", withdrawAmount);
         
         UIManager.Instance.UpdateTexts();
         
