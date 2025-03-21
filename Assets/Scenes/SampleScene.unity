@@ -2381,6 +2381,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 17fcdcd1fe235456fb3e42b6ed5763fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  moneyInput_1: {fileID: 79945295}
+  moneyInput_2: {fileID: 163861963}
+  moneyInput_3: {fileID: 109710373}
+  customMoneyInputField: {fileID: 1200341769}
+  depositButton: {fileID: 548203270}
+  backButton: {fileID: 1674558547}
+  InfoMessage: {fileID: 1035431467}
 --- !u!1 &520119310
 GameObject:
   m_ObjectHideFlags: 0
@@ -2438,7 +2445,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 20000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
   m_sharedMaterial: {fileID: -3769989252343411607, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
@@ -3899,7 +3906,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 50000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
   m_sharedMaterial: {fileID: -3769989252343411607, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
@@ -4830,7 +4837,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 0
+  m_text: 10000
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
   m_sharedMaterial: {fileID: -3769989252343411607, guid: 92a5773b0920744e0998dd9cec353383, type: 2}
