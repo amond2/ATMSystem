@@ -8,7 +8,9 @@ public enum UIState
 {
     Bank,
     Withdraw,
-    Deposit
+    Deposit,
+    Login,
+    SignUp
 }
 
 public class UIManager : MonoBehaviour
@@ -24,6 +26,8 @@ public class UIManager : MonoBehaviour
     BankUI bankUI;
     WithdrawUI withdrawUI;
     DepositUI depositUI;
+    LoginUI loginUI;
+    SignUpUI signUpUI;
     
     void Awake()
     {
@@ -35,6 +39,10 @@ public class UIManager : MonoBehaviour
         withdrawUI?.Init(this);
         depositUI = GetComponentInChildren<DepositUI>(true);
         depositUI?.Init(this);
+        loginUI = GetComponentInChildren<LoginUI>(true);
+        loginUI?.Init(this);
+        signUpUI = GetComponentInChildren<SignUpUI>(true);
+        signUpUI?.Init(this);
     }
     
     public void ChangeState(UIState state)
@@ -42,6 +50,8 @@ public class UIManager : MonoBehaviour
         bankUI?.SetActive(state);
         withdrawUI?.SetActive(state);
         depositUI?.SetActive(state);
+        loginUI?.SetActive(state);
+        signUpUI?.SetActive(state);
     }
     
     public void UpdateTexts()

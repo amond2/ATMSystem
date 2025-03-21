@@ -1,18 +1,35 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using TMPro;
 
-public class SignUpUI : MonoBehaviour
+public class SignUpUI : BaseUI
 {
-    // Start is called before the first frame update
-    void Start()
+    [SerializeField] private TMP_InputField userNameInputField;
+    [SerializeField] private TMP_InputField idInputField;
+    [SerializeField] private TMP_InputField passwordInputField;
+    [SerializeField] private TMP_InputField passwordConfirmInputField;
+    [SerializeField] private Button signUpButton;
+    [SerializeField] private Button backButton;
+    
+    public TMP_Text InfoMessage;
+    
+    protected override UIState GetUIState()
     {
-        
+        return UIState.SignUp;
     }
-
-    // Update is called once per frame
-    void Update()
+    
+    public override void Init(UIManager uiManager)
     {
+        base.Init(uiManager);
         
+        if (backButton != null)
+            backButton.onClick.AddListener(() => OnClickBackButton(UIState.Login));
+    }
+    
+    void OnClickBackButton(UIState targetState)
+    {
+        InfoMessage.text = "";
+        
+        uiManager.ChangeState(targetState);
     }
 }
