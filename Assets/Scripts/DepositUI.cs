@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class DepositUI : BaseUI
 {
@@ -11,7 +12,7 @@ public class DepositUI : BaseUI
     [SerializeField] private Button depositButton;
     [SerializeField] private Button backButton;
     
-    public TMP_Text InfoMessage;
+    public TMP_Text infoMessage;
     
     protected override UIState GetUIState()
     {
@@ -41,7 +42,7 @@ public class DepositUI : BaseUI
     
     void OnClickBackButton(UIState targetState)
     {
-        InfoMessage.text = string.Empty;
+        infoMessage.text = string.Empty;
         
         uiManager.ChangeState(targetState);
     }
@@ -77,7 +78,7 @@ public class DepositUI : BaseUI
     {
         if (string.IsNullOrEmpty(customMoneyInputField.text))
         {
-            InfoMessage.text = "입금 금액을 입력하세요.";
+            infoMessage.text = "입금 금액을 입력하세요.";
             return;
         }
         
@@ -86,7 +87,7 @@ public class DepositUI : BaseUI
         // 잔액이 부족한 경우 먼저 체크
         if (depositAmount > GameManager.Instance.userData.cash)
         {
-            InfoMessage.text = "현금이 부족합니다.";
+            infoMessage.text = "현금이 부족합니다.";
             return;
         }
     
@@ -96,7 +97,7 @@ public class DepositUI : BaseUI
     
         customMoneyInputField.text = string.Empty;
     
-        InfoMessage.text = string.Format("{0:N0}원 입금 완료.", depositAmount);
+        infoMessage.text = string.Format("{0:N0}원 입금 완료.", depositAmount);
         
         UIManager.Instance.UpdateTexts();
 

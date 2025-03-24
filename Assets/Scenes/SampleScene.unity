@@ -1159,6 +1159,7 @@ GameObject:
   m_Component:
   - component: {fileID: 103744480}
   - component: {fileID: 103744479}
+  - component: {fileID: 103744481}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1179,9 +1180,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   userData:
+    userID: 
     userName: 
+    Password: 
     balance: 0
     cash: 0
+  currentUserID: 
 --- !u!4 &103744480
 Transform:
   m_ObjectHideFlags: 0
@@ -1197,6 +1201,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &103744481
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 103744478}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0a8f4e4d10cd43cf95bd94c8112943d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userList: []
 --- !u!1 &109710371
 GameObject:
   m_ObjectHideFlags: 0
@@ -3420,7 +3437,7 @@ MonoBehaviour:
   customMoneyInputField: {fileID: 1200341769}
   depositButton: {fileID: 548203270}
   backButton: {fileID: 1674558547}
-  InfoMessage: {fileID: 1035431467}
+  infoMessage: {fileID: 0}
 --- !u!1 &520119310
 GameObject:
   m_ObjectHideFlags: 0
@@ -4325,7 +4342,7 @@ MonoBehaviour:
   passwordInputField: {fileID: 894697418}
   loginButton: {fileID: 1202080276}
   signUpButton: {fileID: 1402983478}
-  InfoMessage: {fileID: 617523590}
+  infoMessage: {fileID: 617523590}
 --- !u!114 &663243007
 MonoBehaviour:
   m_ObjectHideFlags: 0

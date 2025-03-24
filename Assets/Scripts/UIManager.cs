@@ -57,6 +57,11 @@ public class UIManager : MonoBehaviour
     public void UpdateTexts()
     {
         var userData = GameManager.Instance.userData;
+        if(userData == null)
+        {
+            Debug.LogWarning("UserData is null, cannot update UI texts.");
+            return;
+        }
         
         userNameText.text = userData.userName;
         balanceLabel.text = "통장 잔액";

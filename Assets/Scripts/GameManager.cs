@@ -10,6 +10,8 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance { get; private set; }
     
     public UserData userData;
+    
+    public string currentUserID;
 
     private void Awake()
     {
@@ -20,8 +22,6 @@ public class GameManager : MonoBehaviour
         }
         Instance = this;
         DontDestroyOnLoad(gameObject);
-        
-        userData = new UserData("김효재", 100000, 50000);
     }
     
     void Start()
@@ -32,10 +32,12 @@ public class GameManager : MonoBehaviour
 
     public void SaveUserData()
     {
+        UserDataListWrapper wrapper = new UserDataListWrapper();
+        wrapper.userList = UserManager.Instance.userList;
+        
         string json = JsonUtility.ToJson(userData);
         
         string filePath = Application.persistentDataPath + "/userdata.json";
-        
         System.IO.File.WriteAllText(filePath, json);
         
         Debug.Log("UserData saved to " + filePath);
@@ -49,13 +51,41 @@ public class GameManager : MonoBehaviour
         {
             string json = System.IO.File.ReadAllText(filePath);
             
-            userData = JsonUtility.FromJson<UserData>(json);
+            UserDataListWrapper wrapper = JsonUtility.FromJson<UserDataListWrapper>(json);
             
-            Debug.Log("UserData loaded from " + filePath);
+            if (wrapper != null && wrapper.userList != null)
+            {
+                // 현재 로그인한 사용자의 ID와 일치하는 유저 데이터를 찾음
+                userData = wrapper.userList.Find(u => u.userID == currentUserID);
+                
+                if (userData != null)
+                {
+                    Debug.Log("UserData loaded for user: " + currentUserID);
+                }
+                else
+                {
+                    Debug.LogWarning("No user data found for user: " + currentUserID);
+                }
+            }
+            else
+            {
+                Debug.LogWarning("UserData file format is invalid.");
+            }
         }
         else
         {
             Debug.LogWarning("UserData file not found at " + filePath);
         }
+    }
+
+    void Update()
+    {
+        LoadUserData();
+    }
+    
+    [Serializable]
+    public class UserDataListWrapper
+    {
+        public List<UserData> userList;
     }
 }
