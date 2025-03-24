@@ -54,7 +54,9 @@ public class LoginUI : BaseUI
     
     private void OnClicksSignUpButton(UIState targetState)
     {
-        InfoMessage.text = "";
+        InfoMessage.text = string.Empty;
+        idInputField.text = string.Empty;
+        passwordInputField.text = string.Empty;
         
         uiManager.ChangeState(targetState);
     }

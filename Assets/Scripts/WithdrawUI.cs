@@ -61,7 +61,7 @@ public class WithdrawUI : BaseUI
     // CustomMoneyInputField에 숫자 외의 문자는 제거
     private void OnInputCustomMoneyInputField()
     {
-        string digitsOnly = "";
+        string digitsOnly = string.Empty;
         foreach (char c in customMoneyInputField.text)
         {
             if (char.IsDigit(c))
@@ -94,7 +94,7 @@ public class WithdrawUI : BaseUI
         GameManager.Instance.userData.balance -= withdrawAmount;
         GameManager.Instance.userData.cash += withdrawAmount;
     
-        customMoneyInputField.text = "";
+        customMoneyInputField.text = string.Empty;
     
         InfoMessage.text = string.Format("{0:N0}원 출금 완료.", withdrawAmount);
         
