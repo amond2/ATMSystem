@@ -35,7 +35,7 @@ public class GameManager : MonoBehaviour
         UserDataListWrapper wrapper = new UserDataListWrapper();
         wrapper.userList = UserManager.Instance.userList;
         
-        string json = JsonUtility.ToJson(userData);
+        string json = JsonUtility.ToJson(wrapper);
         
         string filePath = Application.persistentDataPath + "/userdata.json";
         System.IO.File.WriteAllText(filePath, json);
