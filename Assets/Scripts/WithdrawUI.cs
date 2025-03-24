@@ -23,7 +23,7 @@ public class WithdrawUI : BaseUI
         base.Init(uiManager);
         
         if (backButton != null)
-            backButton.onClick.AddListener(() => OnClickBackButton(UIState.Bank));
+            backButton.onClick.AddListener(() => OnClickBackButton(UIState.Bank | UIState.MyPage));
         
         if (moneyInput_1 != null)
             moneyInput_1.onClick.AddListener(() => OnClickMoneyInput(10000));
@@ -96,7 +96,7 @@ public class WithdrawUI : BaseUI
     
         customMoneyInputField.text = string.Empty;
     
-        InfoMessage.text = string.Format("{0:N0}원 출금 완료.", withdrawAmount);
+        InfoMessage.text = $"{withdrawAmount:N0}원 출금 완료.";
         
         GameManager.Instance.SaveUserData();
         GameManager.Instance.UpdateUserData(

@@ -8792,6 +8792,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1581982531}
+  - component: {fileID: 1581982532}
   m_Layer: 5
   m_Name: MyPage
   m_TagString: Untagged
@@ -8820,6 +8821,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1581982532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581982530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f91da05f5f541420b9dc1f87a8a17323, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  userNameText: {fileID: 236285096}
+  balanceLabel: {fileID: 36747548}
+  balanceUnit: {fileID: 136302674}
+  cashLabel: {fileID: 1661239465}
+  cashUnit: {fileID: 1062295302}
 --- !u!1 &1587862698
 GameObject:
   m_ObjectHideFlags: 0
@@ -12079,11 +12097,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3ddf96849fde42309a807c4a0aa5da7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  userNameText: {fileID: 236285096}
-  balanceLabel: {fileID: 36747548}
-  balanceUnit: {fileID: 136302674}
-  cashLabel: {fileID: 1661239465}
-  cashUnit: {fileID: 1062295302}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

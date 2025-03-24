@@ -1,7 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Serialization;
 
 public class MyPageUI : BaseUI
 {
@@ -22,16 +20,16 @@ public class MyPageUI : BaseUI
         Debug.Log("MyPageTexts has been updated1");
 
     }
-    
-    public void MyPageTexts()
+
+    private void MyPageTexts()
     {
         var userData = GameManager.Instance.userData;
         
         userNameText.text = userData.userName;
         balanceLabel.text = "통장 잔액";
-        balanceUnit.text = string.Format("{0:N0}", userData.balance);
+        balanceUnit.text = $"{userData.balance:N0}";
         cashLabel.text = "보유 현금";
-        cashUnit.text = string.Format("{0:N0}", userData.cash);
+        cashUnit.text = $"{userData.cash:N0}";
         
         GameManager.Instance.UpdateUserData(
             GameManager.Instance.userData.userName, 

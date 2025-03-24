@@ -96,7 +96,7 @@ public class DepositUI : BaseUI
     
         customMoneyInputField.text = string.Empty;
     
-        infoMessage.text = string.Format("{0:N0}원 입금 완료.", depositAmount);
+        infoMessage.text = $"{depositAmount:N0}원 입금 완료.";
         
         GameManager.Instance.SaveUserData();
         GameManager.Instance.UpdateUserData(
