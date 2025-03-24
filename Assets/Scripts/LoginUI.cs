@@ -10,7 +10,7 @@ public class LoginUI : BaseUI
     [SerializeField] private Button loginButton;
     [SerializeField] private Button signUpButton;
     
-    [FormerlySerializedAs("InfoMessage")] public TMP_Text infoMessage;
+    public TMP_Text infoMessage;
     
     protected override UIState GetUIState()
     {

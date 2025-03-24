@@ -1,7 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Serialization;
 
 public class DepositUI : BaseUI
 {
@@ -99,8 +98,10 @@ public class DepositUI : BaseUI
     
         infoMessage.text = string.Format("{0:N0}원 입금 완료.", depositAmount);
         
-        UIManager.Instance.UpdateTexts();
-
         GameManager.Instance.SaveUserData();
+        GameManager.Instance.UpdateUserData(
+            GameManager.Instance.userData.userName, 
+            GameManager.Instance.userData.balance, 
+            GameManager.Instance.userData.cash);
     }
 }

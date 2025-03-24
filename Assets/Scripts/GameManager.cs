@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -27,7 +26,6 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         LoadUserData();
-        UIManager.Instance.UpdateTexts();
     }
 
     public void SaveUserData()
@@ -78,10 +76,23 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    void Update()
+    public void UpdateUserData(string newUserName, int newBalance, int newCash)
     {
-        // LoadUserData();
+        if (userData == null)
+        {
+            Debug.LogWarning("UserData is null.");
+            return;
+        }
+    
+        userData.userName = newUserName;
+        userData.balance = newBalance;
+        userData.cash = newCash;
+    
+        SaveUserData();
+    
+        Debug.Log("User data has been updated and saved.");
     }
+
     
     [Serializable]
     public class UserDataListWrapper
