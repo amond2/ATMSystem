@@ -82,11 +82,11 @@ public class SignUpUI : BaseUI
             InfoMessage.text = "이미 존재하는 아이디이에요.";
             return;
         }
-    
-        userManager.RegisterUser(idInputField.text, userNameInputField.text, passwordInputField.text, 0, 0);
-    
-        InfoMessage.text = "회원가입이 완료되었어요.";
+        
+        UserManager.Instance.RegisterUser(idInputField.text, userNameInputField.text, passwordInputField.text, 100000, 0);
     
         GameManager.Instance.SaveUserData();
+        
+        InfoMessage.text = "회원가입이 완료되었어요.";
     }
 }
