@@ -1,13 +1,15 @@
 using UnityEngine;
 
+[System.Flags]
 public enum UIState
 {
-    MyPage,
-    Bank,
-    Withdraw,
-    Deposit,
-    Login,
-    SignUp
+    None = 0,
+    MyPage = 1 << 0,  // 1
+    Bank = 1 << 1,    // 2
+    Withdraw = 1 << 2,// 4
+    Deposit = 1 << 3, // 8
+    Login = 1 << 4,   // 16
+    SignUp = 1 << 5   // 32
 }
 
 public class UIManager : MonoBehaviour
@@ -41,11 +43,17 @@ public class UIManager : MonoBehaviour
     
     public void ChangeState(UIState state)
     {
-        myPageUI?.SetActive(state);
-        bankUI?.SetActive(state);
-        withdrawUI?.SetActive(state);
-        depositUI?.SetActive(state);
-        loginUI?.SetActive(state);
-        signUpUI?.SetActive(state);
+        if(myPageUI != null)
+            myPageUI.gameObject.SetActive((state & UIState.MyPage) != 0);
+        if(bankUI != null)
+            bankUI.gameObject.SetActive((state & UIState.Bank) != 0);
+        if(withdrawUI != null)
+            withdrawUI.gameObject.SetActive((state & UIState.Withdraw) != 0);
+        if(depositUI != null)
+            depositUI.gameObject.SetActive((state & UIState.Deposit) != 0);
+        if(loginUI != null)
+            loginUI.gameObject.SetActive((state & UIState.Login) != 0);
+        if(signUpUI != null)
+            signUpUI.gameObject.SetActive((state & UIState.SignUp) != 0);
     }
 }

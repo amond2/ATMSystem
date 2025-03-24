@@ -27,7 +27,7 @@ public class LoginUI : BaseUI
             passwordInputField.onValueChanged.AddListener(OnInputpasswordInputField);
         
         if (loginButton != null)
-            loginButton.onClick.AddListener(() => OnClickLoginButton(UIState.Bank));
+            loginButton.onClick.AddListener(() => OnClickLoginButton(UIState.Bank | UIState.MyPage ));
         if (signUpButton != null)
             signUpButton.onClick.AddListener(() => OnClicksSignUpButton(UIState.SignUp));
         

@@ -18,9 +18,9 @@ public class BankUI : BaseUI
     {
         base.Init(uiManager);
         if (WithdrawInButton != null)
-            WithdrawInButton.onClick.AddListener(() => OnClickButton(UIState.Withdraw));
+            WithdrawInButton.onClick.AddListener(() => OnClickButton(UIState.Withdraw | UIState.MyPage ));
         if (DepositInButton != null)
-            DepositInButton.onClick.AddListener(() => OnClickButton(UIState.Deposit));
+            DepositInButton.onClick.AddListener(() => OnClickButton(UIState.Deposit | UIState.MyPage ));
     }
     
     void OnClickButton(UIState targetState)

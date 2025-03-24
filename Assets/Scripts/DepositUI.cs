@@ -23,7 +23,7 @@ public class DepositUI : BaseUI
         base.Init(uiManager);
         
         if (backButton != null)
-            backButton.onClick.AddListener(() => OnClickBackButton(UIState.Bank));
+            backButton.onClick.AddListener(() => OnClickBackButton(UIState.Bank | UIState.MyPage ));
         
         if (moneyInput_1 != null)
             moneyInput_1.onClick.AddListener(() => OnClickMoneyInput(10000));
