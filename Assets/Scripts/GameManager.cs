@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        LoadUserData();
+        // LoadUserData();
     }
     
     [Serializable]
