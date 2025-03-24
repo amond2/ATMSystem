@@ -28,7 +28,7 @@ public class SignUpUI : BaseUI
     
     void OnClickBackButton(UIState targetState)
     {
-        InfoMessage.text = "";
+        InfoMessage.text = string.Empty;
         
         uiManager.ChangeState(targetState);
     }

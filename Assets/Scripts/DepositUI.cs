@@ -41,7 +41,7 @@ public class DepositUI : BaseUI
     
     void OnClickBackButton(UIState targetState)
     {
-        InfoMessage.text = "";
+        InfoMessage.text = string.Empty;
         
         uiManager.ChangeState(targetState);
     }
@@ -94,7 +94,7 @@ public class DepositUI : BaseUI
         GameManager.Instance.userData.cash -= depositAmount;
         GameManager.Instance.userData.balance += depositAmount;
     
-        customMoneyInputField.text = "";
+        customMoneyInputField.text = string.Empty;
     
         InfoMessage.text = string.Format("{0:N0}원 입금 완료.", depositAmount);
         
