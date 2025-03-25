@@ -18,6 +18,15 @@ public class SignUpUI : BaseUI
         return UIState.SignUp;
     }
     
+    private void OnEnable()
+    {
+        infoMessage.text = string.Empty;
+        userNameInputField.text = string.Empty;
+        idInputField.text = string.Empty;
+        passwordInputField.text = string.Empty;
+        passwordConfirmInputField.text = string.Empty;
+    }
+    
     public override void Init(UIManager uiManager)
     {
         base.Init(uiManager);
@@ -26,9 +35,6 @@ public class SignUpUI : BaseUI
             backButton.onClick.AddListener(() => OnClickBackButton(UIState.Login));
         if (signUpButton != null)
             signUpButton.onClick.AddListener(OnClickSignUpButton);
-        
-        // 입력 완료 후 유효성 검사 또는 처리: onEndEdit 사용하기, myInputField.onEndEdit.AddListener(OnInputFieldEndEdit);
-        
     }
     
     void OnClickBackButton(UIState targetState)

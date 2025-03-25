@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -17,7 +18,13 @@ public class DepositUI : BaseUI
     {
         return UIState.Deposit;
     }
-    
+
+    private void OnEnable()
+    {
+        infoMessage.text = string.Empty;
+        customMoneyInputField.text = string.Empty;
+    }
+
     public override void Init(UIManager uiManager)
     {
         base.Init(uiManager);
@@ -41,8 +48,6 @@ public class DepositUI : BaseUI
     
     void OnClickBackButton(UIState targetState)
     {
-        infoMessage.text = string.Empty;
-        
         uiManager.ChangeState(targetState);
     }
     
@@ -83,25 +88,26 @@ public class DepositUI : BaseUI
         
         int depositAmount = int.Parse(customMoneyInputField.text);
     
-        // 잔액이 부족한 경우 먼저 체크
         if (depositAmount > GameManager.Instance.userData.cash)
         {
             infoMessage.text = "현금이 부족합니다.";
             return;
         }
-    
-        // 출금 가능하면 처리
-        GameManager.Instance.userData.cash -= depositAmount;
-        GameManager.Instance.userData.balance += depositAmount;
-    
-        customMoneyInputField.text = string.Empty;
-    
-        infoMessage.text = $"{depositAmount:N0}원 입금 완료.";
-        
-        GameManager.Instance.SaveUserData();
-        GameManager.Instance.UpdateUserData(
-            GameManager.Instance.userData.userName, 
-            GameManager.Instance.userData.balance, 
-            GameManager.Instance.userData.cash);
+
+        // if (depositAmount <= GameManager.Instance.userData.balance)
+        // {
+            GameManager.Instance.userData.cash -= depositAmount;
+            GameManager.Instance.userData.balance += depositAmount;
+
+            customMoneyInputField.text = string.Empty;
+
+            infoMessage.text = $"{depositAmount:N0}원 입금 완료.";
+            
+            MyPageUI myPage = FindObjectOfType<MyPageUI>();
+            if(myPage != null)
+            {
+                myPage.MyPageTexts();
+            }
+        // }
     }
 }

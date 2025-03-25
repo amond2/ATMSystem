@@ -87,9 +87,16 @@ public class GameManager : MonoBehaviour
         userData.userName = newUserName;
         userData.balance = newBalance;
         userData.cash = newCash;
+        
+        UserData userInList = UserManager.Instance.userList.Find(u => u.userID == currentUserID);
+        if (userInList != null)
+        {
+            userInList.userName = newUserName;
+            userInList.balance = newBalance;
+            userInList.cash = newCash;
+        }
     
         SaveUserData();
-    
         Debug.Log("User data has been updated and saved.");
     }
 

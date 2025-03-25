@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class WithdrawUI : BaseUI
 {
@@ -11,11 +12,17 @@ public class WithdrawUI : BaseUI
     [SerializeField] private Button withdrawButton;
     [SerializeField] private Button backButton;
     
-    public TMP_Text InfoMessage;
+    public TMP_Text infoMessage;
     
     protected override UIState GetUIState()
     {
         return UIState.Withdraw;
+    }
+    
+    private void OnEnable()
+    {
+        infoMessage.text = string.Empty;
+        customMoneyInputField.text = string.Empty;
     }
     
     public override void Init(UIManager uiManager)
@@ -41,8 +48,6 @@ public class WithdrawUI : BaseUI
     
     void OnClickBackButton(UIState targetState)
     {
-        InfoMessage.text = string.Empty;
-        
         uiManager.ChangeState(targetState);
     }
     
@@ -77,32 +82,30 @@ public class WithdrawUI : BaseUI
     {
         if (string.IsNullOrEmpty(customMoneyInputField.text))
         {
-            InfoMessage.text = "출금 금액을 입력하세요.";
+            infoMessage.text = "출금 금액을 입력하세요.";
             return;
         }
         
         int withdrawAmount = int.Parse(customMoneyInputField.text);
     
-        // 잔액이 부족한 경우 먼저 체크
         if (withdrawAmount > GameManager.Instance.userData.balance)
         {
-            InfoMessage.text = "잔액이 부족합니다.";
+            infoMessage.text = "잔액이 부족합니다.";
             return;
         }
-    
-        // 출금 가능하면 처리
+
+        
         GameManager.Instance.userData.balance -= withdrawAmount;
         GameManager.Instance.userData.cash += withdrawAmount;
-    
-        customMoneyInputField.text = string.Empty;
-    
-        InfoMessage.text = $"{withdrawAmount:N0}원 출금 완료.";
-        
-        GameManager.Instance.SaveUserData();
-        GameManager.Instance.UpdateUserData(
-            GameManager.Instance.userData.userName, 
-            GameManager.Instance.userData.balance, 
-            GameManager.Instance.userData.cash);
 
+        customMoneyInputField.text = string.Empty;
+
+        infoMessage.text = $"{withdrawAmount:N0}원 출금 완료.";
+        
+        MyPageUI myPageUI = FindObjectOfType<MyPageUI>();
+        if (myPageUI != null)
+        {
+            myPageUI.MyPageTexts();
+        }
     }
 }

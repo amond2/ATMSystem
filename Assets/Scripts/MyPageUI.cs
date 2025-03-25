@@ -21,7 +21,7 @@ public class MyPageUI : BaseUI
 
     }
 
-    private void MyPageTexts()
+    public void MyPageTexts()
     {
         var userData = GameManager.Instance.userData;
         

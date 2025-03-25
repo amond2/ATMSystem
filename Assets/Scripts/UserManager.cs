@@ -23,21 +23,6 @@ public class UserManager : MonoBehaviour
         userList.Add(newUser);
         Debug.Log($"New user, id: {userID}, name: {userName}, cash: {cash}, balance: {balance}");
     }
-
-    public UserData GetUser(string userName)
-    {
-        return userList.Find(user => user.userName == userName);
-    }
-    
-    public bool CheckUserPassword(string userID, string password)
-    {
-        UserData user = userList.Find(u => u.userID == userID);
-        if (user == null)
-        {
-            return false;
-        }
-        return user.CheckPassword(password);
-    }
     
     public bool LoginUser(string userID, string password)
     {

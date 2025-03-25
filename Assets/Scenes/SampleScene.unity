@@ -3437,7 +3437,7 @@ MonoBehaviour:
   customMoneyInputField: {fileID: 1200341769}
   depositButton: {fileID: 548203270}
   backButton: {fileID: 1674558547}
-  infoMessage: {fileID: 0}
+  infoMessage: {fileID: 1035431467}
 --- !u!1 &520119310
 GameObject:
   m_ObjectHideFlags: 0
@@ -5291,7 +5291,7 @@ MonoBehaviour:
   customMoneyInputField: {fileID: 185776993}
   withdrawButton: {fileID: 1600230127}
   backButton: {fileID: 1845143727}
-  InfoMessage: {fileID: 727722011}
+  infoMessage: {fileID: 727722011}
 --- !u!1 &931988268
 GameObject:
   m_ObjectHideFlags: 0
@@ -7119,7 +7119,7 @@ MonoBehaviour:
   passwordConfirmInputField: {fileID: 535406631}
   signUpButton: {fileID: 417020824}
   backButton: {fileID: 2016783179}
-  InfoMessage: {fileID: 931988270}
+  infoMessage: {fileID: 931988270}
 --- !u!1 &1225399824
 GameObject:
   m_ObjectHideFlags: 0
