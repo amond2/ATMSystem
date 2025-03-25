@@ -56,6 +56,8 @@ public class GameManager : MonoBehaviour
                 // 현재 로그인한 사용자의 ID와 일치하는 유저 데이터를 찾음
                 userData = wrapper.userList.Find(u => u.userID == currentUserID);
                 
+                UserManager.Instance.userList = wrapper.userList;
+                
                 if (userData != null)
                 {
                     Debug.Log("UserData loaded for user: " + currentUserID);

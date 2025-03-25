@@ -89,7 +89,7 @@ public class SignUpUI : BaseUI
             return;
         }
         
-        UserManager.Instance.RegisterUser(idInputField.text, userNameInputField.text, passwordInputField.text, 100000, 0);
+        UserManager.Instance.RegisterUser(idInputField.text, userNameInputField.text, passwordInputField.text, 100000000, 0);
         GameManager.Instance.SaveUserData();
         
         infoMessage.text = "회원가입이 완료되었어요.";
