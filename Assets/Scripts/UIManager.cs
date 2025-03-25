@@ -9,7 +9,8 @@ public enum UIState
     Withdraw = 1 << 2,// 4
     Deposit = 1 << 3, // 8
     Login = 1 << 4,   // 16
-    SignUp = 1 << 5   // 32
+    SignUp = 1 << 5,   // 32
+    Transfer = 1 << 6
 }
 
 public class UIManager : MonoBehaviour
@@ -22,6 +23,7 @@ public class UIManager : MonoBehaviour
     DepositUI depositUI;
     LoginUI loginUI;
     SignUpUI signUpUI;
+    TransferUI transferUI;
     
     void Awake()
     {
@@ -39,6 +41,8 @@ public class UIManager : MonoBehaviour
         loginUI?.Init(this);
         signUpUI = GetComponentInChildren<SignUpUI>(true);
         signUpUI?.Init(this);
+        transferUI = GetComponentInChildren<TransferUI>(true);
+        transferUI?.Init(this);
     }
     
     public void ChangeState(UIState state)
@@ -55,5 +59,7 @@ public class UIManager : MonoBehaviour
             loginUI.gameObject.SetActive((state & UIState.Login) != 0);
         if(signUpUI != null)
             signUpUI.gameObject.SetActive((state & UIState.SignUp) != 0);
+        if(transferUI != null)
+            transferUI.gameObject.SetActive((state & UIState.Transfer) != 0);
     }
 }

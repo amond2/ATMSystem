@@ -82,7 +82,7 @@ public class DepositUI : BaseUI
     {
         if (string.IsNullOrEmpty(customMoneyInputField.text))
         {
-            infoMessage.text = "입금 금액을 입력하세요.";
+            infoMessage.text = "입금할 금액을 입력하세요.";
             return;
         }
         

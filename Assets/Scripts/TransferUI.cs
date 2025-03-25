@@ -1,47 +1,40 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using UnityEngine.Serialization;
 
-public class WithdrawUI : BaseUI
+public class TransferUI : BaseUI
 {
-    [SerializeField] private Button moneyInput_1;
-    [SerializeField] private Button moneyInput_2;
-    [SerializeField] private Button moneyInput_3;
+    [SerializeField] private TMP_InputField idInputField;
     [SerializeField] private TMP_InputField customMoneyInputField;
-    [SerializeField] private Button withdrawButton;
+    [SerializeField] private Button transferButton;
     [SerializeField] private Button backButton;
-    
+
     public TMP_Text infoMessage;
-    
+
     protected override UIState GetUIState()
     {
-        return UIState.Withdraw;
+        return UIState.Transfer;
     }
-    
+
     private void OnEnable()
     {
         infoMessage.text = string.Empty;
+        idInputField.text = string.Empty;
         customMoneyInputField.text = string.Empty;
     }
-    
+
     public override void Init(UIManager uiManager)
     {
         base.Init(uiManager);
-        
+
         if (backButton != null)
             backButton.onClick.AddListener(() => OnClickBackButton(UIState.Bank | UIState.MyPage));
-        
-        if (moneyInput_1 != null)
-            moneyInput_1.onClick.AddListener(() => OnClickMoneyInput(10000));
-        if (moneyInput_2 != null)
-            moneyInput_2.onClick.AddListener(() => OnClickMoneyInput(20000));
-        if (moneyInput_3 != null)
-            moneyInput_3.onClick.AddListener(() => OnClickMoneyInput(50000));
-        
-        if (withdrawButton != null)
-            withdrawButton.onClick.AddListener(OnClickWithdrawButton);
-        
+
+
+        if (transferButton != null)
+            transferButton.onClick.AddListener(OnClickTransferButton);
+
         if (customMoneyInputField != null)
             customMoneyInputField.onValueChanged.AddListener(delegate { OnInputCustomMoneyInputField(); });
     }
@@ -51,17 +44,6 @@ public class WithdrawUI : BaseUI
         uiManager.ChangeState(targetState);
     }
     
-    private void OnClickMoneyInput(int addAmount)
-    {
-        int currentAmount = 0;
-        if (!string.IsNullOrEmpty(customMoneyInputField.text))
-        {
-            int.TryParse(customMoneyInputField.text, out currentAmount);
-        }
-        currentAmount += addAmount;
-        customMoneyInputField.text = currentAmount.ToString();
-    }
-
     // CustomMoneyInputField에 숫자 외의 문자는 제거
     private void OnInputCustomMoneyInputField()
     {
@@ -77,29 +59,30 @@ public class WithdrawUI : BaseUI
         }
     }
     
-    private void OnClickWithdrawButton()
+    private void OnClickTransferButton()
     {
         if (string.IsNullOrEmpty(customMoneyInputField.text))
         {
-            infoMessage.text = "출금할 금액을 입력하세요.";
+            infoMessage.text = "송금할 금액을 입력하세요.";
             return;
         }
         
-        int withdrawAmount = int.Parse(customMoneyInputField.text);
+        int transferAmount = int.Parse(customMoneyInputField.text);
     
-        if (withdrawAmount > GameManager.Instance.userData.balance)
+        if (transferAmount > GameManager.Instance.userData.balance)
         {
             infoMessage.text = "잔액이 부족합니다.";
             return;
         }
-
         
-        GameManager.Instance.userData.balance -= withdrawAmount;
-        GameManager.Instance.userData.cash += withdrawAmount;
+        
+        GameManager.Instance.userData.balance -= transferAmount;
+        // [송금할 대상의 Cash] += transferAmount;
+        
 
         customMoneyInputField.text = string.Empty;
 
-        infoMessage.text = $"{withdrawAmount:N0}원 출금 완료.";
+        infoMessage.text = $"{transferAmount:N0}원 송금 완료.";
         
         MyPageUI myPageUI = FindObjectOfType<MyPageUI>();
         if (myPageUI != null)
