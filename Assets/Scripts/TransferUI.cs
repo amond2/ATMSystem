@@ -75,10 +75,14 @@ public class TransferUI : BaseUI
             return;
         }
         
+        string transferUserID = idInputField.text;
         
         GameManager.Instance.userData.balance -= transferAmount;
-        // [송금할 대상의 Cash] += transferAmount;
-        
+        UserData userInList = UserManager.Instance.userList.Find(u => u.userID == transferUserID);
+        if (userInList != null)
+        {
+            userInList.balance += transferAmount;
+        }
 
         customMoneyInputField.text = string.Empty;
 
