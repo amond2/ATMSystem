@@ -61,6 +61,12 @@ public class TransferUI : BaseUI
     
     private void OnClickTransferButton()
     {
+        if (string.IsNullOrEmpty(idInputField.text))
+        {
+            infoMessage.text = "송금을 받는 분의 아이디를 입력하세요.";
+            return;
+        }
+        
         if (string.IsNullOrEmpty(customMoneyInputField.text))
         {
             infoMessage.text = "송금할 금액을 입력하세요.";
@@ -71,7 +77,7 @@ public class TransferUI : BaseUI
     
         if (transferAmount > GameManager.Instance.userData.balance)
         {
-            infoMessage.text = "잔액이 부족합니다.";
+            infoMessage.text = "통장의 잔액이 부족해요.";
             return;
         }
         
@@ -79,8 +85,20 @@ public class TransferUI : BaseUI
         
         GameManager.Instance.userData.balance -= transferAmount;
         UserData userInList = UserManager.Instance.userList.Find(u => u.userID == transferUserID);
+        if (userInList == null)
+        {
+            infoMessage.text = "존재하지 않는 아이디이에요.";
+            return;
+        }
+        
+        
         if (userInList != null)
         {
+            if (transferUserID == GetCurrentUserID())
+            {
+                infoMessage.text = "본인에게 송금할 수 없아요.";
+                return;
+            }
             userInList.balance += transferAmount;
         }
 
@@ -93,5 +111,14 @@ public class TransferUI : BaseUI
         {
             myPageUI.MyPageTexts();
         }
+    }
+    
+    string GetCurrentUserID()
+    {
+        if (GameManager.Instance != null && GameManager.Instance.userData != null)
+        {
+            return GameManager.Instance.userData.userID;
+        }
+        return string.Empty;
     }
 }

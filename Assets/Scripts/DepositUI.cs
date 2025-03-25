@@ -90,7 +90,7 @@ public class DepositUI : BaseUI
     
         if (depositAmount > GameManager.Instance.userData.cash)
         {
-            infoMessage.text = "현금이 부족합니다.";
+            infoMessage.text = "현금이 부족해요.";
             return;
         }
 

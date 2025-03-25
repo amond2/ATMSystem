@@ -89,7 +89,7 @@ public class WithdrawUI : BaseUI
     
         if (withdrawAmount > GameManager.Instance.userData.balance)
         {
-            infoMessage.text = "잔액이 부족합니다.";
+            infoMessage.text = "통장의 잔액이 부족해요.";
             return;
         }
 
